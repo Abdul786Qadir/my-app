@@ -6,8 +6,10 @@ pipeline {
                 sh "rm -rf my-app"
                 sh "git clone https://github.com/Abdul786Qadir/my-app.git"
                 sh "mvn clean -f my-app"
+                
             }
         }
+        
         stage('Test') {
             steps {
                 sh "mvn test -f my-app"
