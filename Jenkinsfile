@@ -28,11 +28,3 @@ pipeline {
             }
         }
     }
-    post
-    {
-        always
-        {
-            emailext body: 'Hi use for pipeline status.', subject: 'pipeline status', to: 'aq2072417@gmail.com'
-        }
-    }
-}
