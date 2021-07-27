@@ -1,16 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage("clone repository from github") {
+        stage("clone repository") {
             steps {
                 sh "rm -rf my-app"
                 sh "git clone https://github.com/Abdul786Qadir/my-app.git"
-                sh "mvn clean -f my-app"
-                
+                sh "mvn clean -f my-app"    
             }
         }
-        
-        stage('Test') {
+        stage('Test maven project') {
             steps {
                 sh "mvn test -f my-app"
             }
