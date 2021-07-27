@@ -18,15 +18,6 @@ pipeline {
                 sh "mvn package -f my-app"
             }
         }
-         post
-    {
-        always
-        {
-            emailext body: 'Hi use for pipeline status.', subject: 'pipeline status', to: 'aq2072417@gmail.com'
-        }
-    }
-
-
     }
 }
 
