@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage("clone repo") {
+        stage("clone repository from github") {
             steps {
                 sh "rm -rf my-app"
                 sh "git clone https://github.com/Abdul786Qadir/my-app.git"
