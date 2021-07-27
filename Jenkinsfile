@@ -1,31 +1,24 @@
 pipeline {
     agent any
+    stages {
+        stage("clone repo") {
+            steps {
+                sh "rm -rf my-app"
+                sh "git clone https://github.com/Abdul786Qadir/my-app.git"
+                sh "mvn clean -f my-app"
+            }
+        }
+        stage('Test') {
+            steps {
+                sh "mvn test -f my-app"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh "mvn package -f my-app"
+            }
+        }
 
-    stages
-    {
-        stage('Build') {
-            steps {
-                echo 'Build application'
-            }
-        }pipeline {
-    agent any
-
-    stages
-    {
-        stage('Build') {
-            steps {
-                echo 'Build application'
-            }
-        }
-         stage('Test') {
-            steps {
-                echo 'Test application'
-            }
-        }
-         stage('Deploy') {
-            steps {
-                echo 'Deploy application'
-            }
-        }
     }
- }
+}
+
